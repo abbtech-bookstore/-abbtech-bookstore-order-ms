@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'org.abbtech'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('logbackEncoderVersion', '7.3')
+    set('liquibaseCoreVersion', '4.22.0')
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.h2database:h2' // Runtime dependency for H2 database
+    implementation 'org.postgresql:postgresql' // Runtime dependency for PostgreSQL
+
+    // Logging dependencies
+    implementation "net.logstash.logback:logstash-logback-encoder:${logbackEncoderVersion}"
+    implementation 'ch.qos.logback:logback-classic'
+
+    // Liquibase dependency
+    implementation "org.liquibase:liquibase-core:${liquibaseCoreVersion}"
+
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+
+    // Lombok dependency
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    //byMe
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.1'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

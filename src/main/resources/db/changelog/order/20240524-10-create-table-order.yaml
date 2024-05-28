@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20240524-11-1
+      author: RevanHajiyev
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: bookId
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: quantity
+                  type: INT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: userId
+                  type: UUID
+            remarks: Order entity
+            tableName: ORDERS
