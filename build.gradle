@@ -47,7 +47,7 @@ dependencies {
 
     //byMe
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.1'
-
+    implementation 'org.springframework.kafka:spring-kafka'
 }
 
 tasks.named('test') {

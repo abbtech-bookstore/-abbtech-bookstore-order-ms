@@ -1,7 +1,7 @@
   server:
     port: ${SERVER_PORT:8083}
     servlet:
-      context-path: /api/abbtech-bookstore-order-ms
+      context-path: /abbtech-bookstore-order-ms
   spring:
     application:
       name: abbtech-bookstore-order-ms
